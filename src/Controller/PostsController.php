@@ -8,8 +8,8 @@ class PostsController extends AppController {
     public $helpers = array('Html', 'Form');
 
     public function index() {
-       $posts = $this->set('posts', $this->Post->find('all'));
-       Log::debug($posts);
+       // $posts = $this->set('posts', $this->Post->find('all'));
+       // Log::debug($posts);
     }
 
     public function view($id = null) {
