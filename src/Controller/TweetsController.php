@@ -67,6 +67,7 @@ class TweetsController extends AppController
         if ($this->request->is('post')) {
             $tweet = $this->Tweets->patchEntity($tweet, $this->request->getData());
             // eval(\Psy\sh());
+            $tweet->user_id = $this->Auth->user('id');
             if ($this->Tweets->save($tweet)) {
                 $this->Flash->success(__('The tweet has been saved.'));
 

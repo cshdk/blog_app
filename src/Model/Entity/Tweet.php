@@ -32,5 +32,6 @@ class Tweet extends Entity
         'created' => true,
         'modified' => true,
         'image' => true,
+        'user_id' => true
     ];
 }
