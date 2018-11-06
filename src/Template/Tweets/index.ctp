@@ -13,20 +13,21 @@
 <div class="tweets index large-9 medium-8 columns content">
 
       <?php
-        if(isset($user)):
-            echo "ログイン中です";
-            #後々フラッシュメッセージにする
+      $logged_in = $this->request->getSession()->read('Auth');
+        if(is_null($logged_in)):
+             echo "ログインしてください";
           else:
-            echo "ログインしてください";
+             echo "ログイン中です";
+            #後々フラッシュメッセージにする
           endif;
-          var_dump($user);
+          var_dump($logged_in);
        ?>
 
-      <?php
+     <!--  <?php
        if (is_null($user)){
          echo "ログイン中です";
        }
-      ?>
+      ?> -->
     <h2><?= __('Tweets') ?>一覧</h2>
     <table>
        <!--  <thead>

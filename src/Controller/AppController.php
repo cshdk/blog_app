@@ -38,6 +38,8 @@ class AppController extends Controller
      *
      * @return void
      */
+
+
     public function initialize()
     {
         parent::initialize();
@@ -47,6 +49,8 @@ class AppController extends Controller
         ]);
         $this->loadComponent('Flash');
         $this->loadComponent('Flash');
+        $logged_in = $this->loadComponent('Auth');
+        $logged_in = $this->Auth->user();
         $this->loadComponent('Auth', [
             'loginRedirect' => [
                 'controller' => 'Tweets',
@@ -69,7 +73,6 @@ class AppController extends Controller
             ],
             // 'storage' => 'Session'
         ]);
-
 
 
 

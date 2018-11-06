@@ -4,13 +4,6 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-
- <?php
-   if ($logged_in){
-     echo "ログイン中です";
-   }
- ?>
-
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>

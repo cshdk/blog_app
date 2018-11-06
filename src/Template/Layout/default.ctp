@@ -47,11 +47,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <ul class="right">
                 <div id="header_menu">
         <?php
-          if(isset($user)):
-            echo $this->Html->link('ログアウト', '/users/logout');
-          else:
+          $logged_in = $this->request->getSession()->read('Auth');
+          if(is_null($logged_in)):
             echo $this->Html->link('ログイン', '/users/login');
             echo $this->Html->link('新規登録','/users/add');
+          else:
+            echo $this->Html->link('ログアウト', '/users/logout');
           endif;
         ?>
       </div>
