@@ -24,10 +24,13 @@ class Tweet extends Entity
      *
      * @var array
      */
+    public $belongsTo ='User';
+
     protected $_accessible = [
         'title' => true,
         'body' => true,
         'created' => true,
-        'modified' => true
+        'modified' => true,
+        'image' => true,
     ];
 }

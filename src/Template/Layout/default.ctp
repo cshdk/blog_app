@@ -58,8 +58,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
       </div>
             </ul>
         </div>
-    </nav>
-　<!-- 　ここより上は共通記述のファイル -->
+    </nav><!-- 　ここより上は共通記述のファイル -->
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>

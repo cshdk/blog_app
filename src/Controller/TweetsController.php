@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Log\Log;
 
 /**
  * Tweets Controller
@@ -19,8 +20,6 @@ class TweetsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-
-
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
@@ -33,10 +32,6 @@ class TweetsController extends AppController
         $tweets = $this->paginate($this->Tweets);
 
         $this->set(compact('tweets'));
-
-        $this->set(compact('user'));
-
-        #test
     }
 
     /**
@@ -46,14 +41,16 @@ class TweetsController extends AppController
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
-    {
-        $tweet = $this->Tweets->get($id, [
-            'contain' => []
-        ]);
 
-        $this->set('tweet', $tweet);
-    }
+      #何に使われるかいまいちわかっていないため消しておいた
+    // public function view($id = null)
+    // {
+    //     $tweet = $this->Tweets->get($id, [
+    //         'contain' => []
+    //     ]);
+
+    //     $this->set('tweet', $tweet);
+    // }
 
     /**
      * Add method
@@ -62,13 +59,14 @@ class TweetsController extends AppController
      */
     public function add()
     {
-
         $tweet = $this->Tweets->newEntity();
+        // $tweet->user = $user;
         if ($this->request->is('post')) {
             #ビューから送られてきた情報をここで取ってきて$tweetに入れている
         $tweet = $this->Tweets->newEntity();
         if ($this->request->is('post')) {
             $tweet = $this->Tweets->patchEntity($tweet, $this->request->getData());
+            // eval(\Psy\sh());
             if ($this->Tweets->save($tweet)) {
                 $this->Flash->success(__('The tweet has been saved.'));
 
@@ -76,7 +74,7 @@ class TweetsController extends AppController
             }
             $this->Flash->error(__('The tweet could not be saved. Please, try again.'));
         }
-        $this->set(compact('tweet'));
+         $this->set(compact('tweet'));
       }
     }
 

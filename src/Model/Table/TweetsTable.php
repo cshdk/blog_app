@@ -35,8 +35,9 @@ class TweetsTable extends Table
 
         $this->setTable('tweets');
         $this->setDisplayField('title');
+        $this->setDisplayField('image');
+        $this->setDisplayField('user_id');
         $this->setPrimaryKey('id');
-
         $this->addBehavior('Timestamp');
     }
 
@@ -60,6 +61,8 @@ class TweetsTable extends Table
         $validator
             ->scalar('body')
             ->allowEmpty('body');
+
+
 
         return $validator;
     }

@@ -24,11 +24,12 @@ class User extends Entity
      *
      * @var array
      */
+    public $hasMany = 'Tweet';
+
      protected $_accessible = [
         '*' => true,
         'id' => false
     ];
-
     /**
      * Fields that are excluded from JSON versions of the entity.
      *

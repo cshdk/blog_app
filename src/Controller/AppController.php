@@ -63,15 +63,12 @@ class AppController extends Controller
             'authenticate' => [
                 'Form' => [
                   'userModel' => 'Users',
-                //   'tweetModel' => 'Users',
-                // 'Basic' => array('tweetModel' => 'Users'),
                   'fields' => [
                     'email'   => 'email',
                     'password' => 'password'
                   ]
                 ]
             ],
-            // 'storage' => 'Session'
         ]);
 
 

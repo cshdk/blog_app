@@ -22,12 +22,6 @@
           endif;
           var_dump($logged_in);
        ?>
-
-     <!--  <?php
-       if (is_null($user)){
-         echo "ログイン中です";
-       }
-      ?> -->
     <h2><?= __('Tweets') ?>一覧</h2>
     <table>
        <!--  <thead>

@@ -45,14 +45,16 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
-    {
-        $user = $this->Users->get($id, [
-            'contain' => []
-        ]);
 
-        $this->set('user', $user);
-    }
+     #何に使われるかいまいちわかっていないため消しておいた
+    // public function view($id = null)
+    // {
+    //     $user = $this->Users->get($id, [
+    //         'contain' => []
+    //     ]);
+
+    //     $this->set('user', $user);
+    // }
 
     /**
      * Add method
