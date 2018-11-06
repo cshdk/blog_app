@@ -2,7 +2,10 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+<<<<<<< HEAD
 use Cake\Event\Event;
+=======
+>>>>>>> 9966783fc8d5ea5473c82ccc2ef808356b8ac388
 
 /**
  * Tweets Controller
@@ -19,6 +22,7 @@ class TweetsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+<<<<<<< HEAD
 
 
     public function beforeFilter(Event $event)
@@ -28,12 +32,17 @@ class TweetsController extends AppController
     }
 
 
+=======
+>>>>>>> 9966783fc8d5ea5473c82ccc2ef808356b8ac388
     public function index()
     {
         $tweets = $this->paginate($this->Tweets);
 
         $this->set(compact('tweets'));
+<<<<<<< HEAD
         $this->set(compact('user'));
+=======
+>>>>>>> 9966783fc8d5ea5473c82ccc2ef808356b8ac388
     }
 
     /**
@@ -59,10 +68,15 @@ class TweetsController extends AppController
      */
     public function add()
     {
+<<<<<<< HEAD
 
         $tweet = $this->Tweets->newEntity();
         if ($this->request->is('post')) {
             #ビューから送られてきた情報をここで取ってきて$tweetに入れている
+=======
+        $tweet = $this->Tweets->newEntity();
+        if ($this->request->is('post')) {
+>>>>>>> 9966783fc8d5ea5473c82ccc2ef808356b8ac388
             $tweet = $this->Tweets->patchEntity($tweet, $this->request->getData());
             if ($this->Tweets->save($tweet)) {
                 $this->Flash->success(__('The tweet has been saved.'));
