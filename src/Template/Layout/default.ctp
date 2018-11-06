@@ -37,16 +37,28 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
+                <h1><a href='http://localhost:8765/tweets/index'>ブログアプリ</a></h1>
             </li>
         </ul>
+    <div id="container">
+      <div id="header">
+
         <div class="top-bar-section">
             <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
+                <div id="header_menu">
+        <?php
+          if(isset($user)):
+            echo $this->Html->link('ログアウト', '/users/logout');
+          else:
+            echo $this->Html->link('ログイン', '/users/login');
+            echo $this->Html->link('新規登録','/users/add');
+          endif;
+        ?>
+      </div>
             </ul>
         </div>
     </nav>
+　<!-- 　ここより上は共通記述のファイル -->
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>

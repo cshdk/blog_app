@@ -14,6 +14,7 @@
  */
 namespace App\Controller;
 
+
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 
@@ -45,6 +46,32 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
+        $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Tweets',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'authenticate' => [
+                'Form' => [
+                  'userModel' => 'Users',
+                //   'tweetModel' => 'Users',
+                // 'Basic' => array('tweetModel' => 'Users'),
+                  'fields' => [
+                    'email'   => 'email',
+                    'password' => 'password'
+                  ]
+                ]
+            ],
+            // 'storage' => 'Session'
+        ]);
+
+
+
 
         /*
          * Enable the following component for recommended CakePHP security settings.

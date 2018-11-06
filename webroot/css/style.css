@@ -359,7 +359,7 @@ table {
 }
 
 table thead {
-    background: none;
+    background: gray;
 }
 
 table tr {
@@ -380,6 +380,10 @@ table tr th {
 
 table tr:nth-of-type(even) {
     background: none;
+}
+
+tbody{
+     width: 100%;
 }
 
 fieldset {
@@ -521,4 +525,21 @@ div.message.hidden {
 table td {
     vertical-align: top;
     word-break: break-all;
+}
+
+.post_title{
+   width: 300px;
+  /* background-color: gray;*/
+}
+
+.post_body{
+   width: 300px;
+   height: 500px;
+ /*  background-color: gray;*/
+}
+
+.botton_type{
+   color: #15848F;
+   text-transform: uppercase;
+   box-shadow: none;
 }

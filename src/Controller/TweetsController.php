@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Tweets Controller
@@ -18,11 +19,21 @@ class TweetsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow('index');
+    }
+
+
     public function index()
     {
         $tweets = $this->paginate($this->Tweets);
 
         $this->set(compact('tweets'));
+        $this->set(compact('user'));
     }
 
     /**
@@ -48,8 +59,10 @@ class TweetsController extends AppController
      */
     public function add()
     {
+
         $tweet = $this->Tweets->newEntity();
         if ($this->request->is('post')) {
+            #ビューから送られてきた情報をここで取ってきて$tweetに入れている
             $tweet = $this->Tweets->patchEntity($tweet, $this->request->getData());
             if ($this->Tweets->save($tweet)) {
                 $this->Flash->success(__('The tweet has been saved.'));

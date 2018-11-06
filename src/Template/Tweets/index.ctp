@@ -11,9 +11,25 @@
     </ul>
 </nav>
 <div class="tweets index large-9 medium-8 columns content">
-    <h3><?= __('Tweets') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
+
+      <?php
+        if(isset($user)):
+            echo "ログイン中です";
+            #後々フラッシュメッセージにする
+          else:
+            echo "ログインしてください";
+          endif;
+          var_dump($user);
+       ?>
+
+      <?php
+       if (is_null($user)){
+         echo "ログイン中です";
+       }
+      ?>
+    <h2><?= __('Tweets') ?>一覧</h2>
+    <table>
+       <!--  <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
@@ -21,20 +37,33 @@
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-        </thead>
+        </thead> -->
         <tbody>
             <?php foreach ($tweets as $tweet): ?>
-            <tr>
-                <td><?= $this->Number->format($tweet->id) ?></td>
-                <td><?= h($tweet->title) ?></td>
-                <td><?= h($tweet->created) ?></td>
-                <td><?= h($tweet->modified) ?></td>
-                <td class="actions">
+          <!--   <tr> -->
+              <!--   <td><?= $this->Number->format($tweet->id) ?></td> -->
+                <div class="post_title">
+                 <h2>タイトル</h2>
+                  <?= h($tweet->title) ?>
+                </div>
+                <div class="post_body">
+                 <h2>内容</h2>
+                  <?= h($tweet->body) ?>
+                </div>
+           <!--      <td><?= h($tweet->created) ?></td>
+                <td><?= h($tweet->modified) ?></td> -->
+              <!--   <td class="actions"> -->
+                  <div class="button_type">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $tweet->id]) ?>
+                  </div>
+                  <div class="button_type">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $tweet->id]) ?>
+                  </div>
+                  <div class="button_type">
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $tweet->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tweet->id)]) ?>
-                </td>
-            </tr>
+                  </div>
+             <!--    </td> -->
+          <!--   </tr> -->
             <?php endforeach; ?>
         </tbody>
     </table>
