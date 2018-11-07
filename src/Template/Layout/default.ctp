@@ -25,10 +25,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
-
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
@@ -36,25 +34,30 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
+          <div class="name2">
             <li class="name">
-                <h1><a href='http://localhost:8765/tweets/index'>ブログアプリ</a></h1>
+                <h1><a class="name3" href='http://localhost:8765/tweets/index'>BLOG APP</a></h1>
             </li>
+          </div>
         </ul>
     <div id="container">
       <div id="header">
-
         <div class="top-bar-section">
             <ul class="right">
                 <div id="header_menu">
-        <?php
-          $logged_in = $this->request->getSession()->read('Auth');
-          if(is_null($logged_in)):
-            echo $this->Html->link('ログイン', '/users/login');
-            echo $this->Html->link('新規登録','/users/add');
-          else:
-            echo $this->Html->link('ログアウト', '/users/logout');
-          endif;
-        ?>
+        <?php  $logged_in = $this->request->getSession()->read('Auth');  ?>
+        <?php  if(is_null($logged_in)):   ?>
+        <div class="square_btn", href="http://localhost:8765/tweets/index">
+        <?php    echo $this->Html->link('ログイン', '/users/login',['class'=>'text_inbutton']); ?>
+        </div>
+        <div class="square_btn">
+        <?php   echo $this->Html->link('新規登録','/users/add',['class'=>'text_inbutton']);     ?>
+        </div>
+        <?php  else:   ?>
+         <div class="square_btn">
+        <?php  echo $this->Html->link('ログアウト', '/users/logout',['class'=>'text_inbutton']);   ?>
+         </div>
+        <?php  endif;  ?>
       </div>
             </ul>
         </div>

@@ -25,6 +25,6 @@
             echo $this->Form->control('body');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('UPDATE')) ?>
     <?= $this->Form->end() ?>
 </div>

@@ -43,14 +43,14 @@ class TweetsController extends AppController
      */
 
       #何に使われるかいまいちわかっていないため消しておいた
-    // public function view($id = null)
-    // {
-    //     $tweet = $this->Tweets->get($id, [
-    //         'contain' => []
-    //     ]);
+    public function view($id = null)
+    {
+        $tweet = $this->Tweets->get($id, [
+            'contain' => []
+        ]);
 
-    //     $this->set('tweet', $tweet);
-    // }
+        $this->set('tweet', $tweet);
+    }
 
     /**
      * Add method
@@ -86,22 +86,22 @@ class TweetsController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    // public function edit($id = null)
-    // {
-    //     $tweet = $this->Tweets->get($id, [
-    //         'contain' => []
-    //     ]);
-    //     if ($this->request->is(['patch', 'post', 'put'])) {
-    //         $tweet = $this->Tweets->patchEntity($tweet, $this->request->getData());
-    //         if ($this->Tweets->save($tweet)) {
-    //             $this->Flash->success(__('The tweet has been saved.'));
+    public function edit($id = null)
+    {
+        $tweet = $this->Tweets->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $tweet = $this->Tweets->patchEntity($tweet, $this->request->getData());
+            if ($this->Tweets->save($tweet)) {
+                $this->Flash->success(__('The tweet has been saved.'));
 
-    //             return $this->redirect(['action' => 'index']);
-    //         }
-    //         $this->Flash->error(__('The tweet could not be saved. Please, try again.'));
-    //     }
-    //     $this->set(compact('tweet'));
-    // }
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The tweet could not be saved. Please, try again.'));
+        }
+        $this->set(compact('tweet'));
+    }
 
     /**
      * Delete method
@@ -110,16 +110,16 @@ class TweetsController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    // public function delete($id = null)
-    // {
-    //     $this->request->allowMethod(['post', 'delete']);
-    //     $tweet = $this->Tweets->get($id);
-    //     if ($this->Tweets->delete($tweet)) {
-    //         $this->Flash->success(__('The tweet has been deleted.'));
-    //     } else {
-    //         $this->Flash->error(__('The tweet could not be deleted. Please, try again.'));
-    //     }
+    public function delete($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $tweet = $this->Tweets->get($id);
+        if ($this->Tweets->delete($tweet)) {
+            $this->Flash->success(__('The tweet has been deleted.'));
+        } else {
+            $this->Flash->error(__('The tweet could not be deleted. Please, try again.'));
+        }
 
-    //     return $this->redirect(['action' => 'index']);
-    // }
+        return $this->redirect(['action' => 'index']);
+    }
 }
