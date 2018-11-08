@@ -40,26 +40,28 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </li>
               </div>
             </ul>
-        <div id="container">
-          <div id="header">
-            <div class="top-bar-section">
-                <ul class="right">
-                    <div id="header_menu">
-            <?php  $logged_in = $this->request->getSession()->read('Auth');  ?>
-            <?php  if(is_null($logged_in)):   ?>
-            <div class="square_btn", href="http://localhost:8765/tweets/index">
-            <?php    echo $this->Html->link('ログイン', '/users/login',['class'=>'text_inbutton']); ?>
-            </div>
-            <div class="square_btn">
-            <?php   echo $this->Html->link('新規登録','/users/add',['class'=>'text_inbutton']);     ?>
-            </div>
-            <?php  else:   ?>
-             <div class="square_btn">
-            <?php  echo $this->Html->link('ログアウト', '/users/logout',['class'=>'text_inbutton']);  ?>
+            <div id="container">
+              <div id="header">
+                <div class="top-bar-section">
+                    <ul class="right">
+                     <div id="header_menu">
+                       <?php  $logged_in = $this->request->getSession()->read('Auth');  ?>
+                       <?php  if(is_null($logged_in)):   ?>
+                       <div class="square_btn", href="http://localhost:8765/tweets/index">
+                         <?php    echo $this->Html->link('ログイン', '/users/login',['class'=>'text_inbutton']); ?>
+                       </div>
+                       <div class="square_btn">
+                         <?php   echo $this->Html->link('新規登録','/users/add',['class'=>'text_inbutton']);     ?>
+                       </div>
+                       <?php  else:   ?>
+                        <div class="square_btn">
+                          <?php  echo $this->Html->link('ログアウト', '/users/logout',['class'=>'text_inbutton']);  ?>
+                        </div>
+                       <?php  endif;  ?>
+                     </div>
+                   </ul>
+              </div>
              </div>
-            <?php  endif;  ?>
-          </div>
-                </ul>
             </div>
         </nav><!-- 　ここより上は共通記述のファイル -->
         <?= $this->Flash->render() ?>

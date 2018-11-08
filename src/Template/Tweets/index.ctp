@@ -5,10 +5,9 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Tweet'), ['action' => 'add']) ?></li>
-    </ul>
+    <div class="side-nav">
+        <div class="new_tweet_button"><?= $this->Html->link(__('New Tweet'), ['action' => 'add']) ?></div>
+    </div>
 </nav>
 <div class="tweets index large-9 medium-8 columns content">
     <h2 class="main_name_head">Latest Blog List</h2>
@@ -35,21 +34,21 @@
                       <div class="button_type">
                          <?= $this->Html->link(__('View'), ['action' => 'view', $tweet_user->id]) ?>
                       </div>
+                    <?php  $logged_in = $this->request->getSession()->read('Auth');  ?>
+                    <?php  if(is_null($logged_in)):  ?>
+                    <?php  else:  ?>
                       <div class="button_type">
                          <?= $this->Html->link(__('Edit'), ['action' => 'edit', $tweet_user->id]) ?>
                       </div>
                       <div class="button_type">
                          <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $tweet_user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tweet_user->id)]) ?>
                       </div>
-                       <div class="post_data">
-                          <div class="post_datahead">time</div>
+                    <?php  endif;  ?>
+                      <div class="post_data">
+                        <div class="post_datahead">time</div>
                             <?= date('Y/m/d h:i', strtotime($tweet_user->created)); ?>
                        </div>
-                 <!--  <div class="post_date">
-                    <h2 class="post_data_head">date</h2>
-                    <?= h($tweet_user->created) ?>
-                  </div> -->
-                </div>
+                      </div>
               <div class="nul_box">
               </div>
             <?php endforeach; ?>
