@@ -24,7 +24,7 @@ class User extends Entity
      *
      * @var array
      */
-    public $hasMany = 'Tweet';
+    public $hasMany = 'Tweets';
 
      protected $_accessible = [
         '*' => true,

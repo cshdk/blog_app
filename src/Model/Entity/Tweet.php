@@ -24,7 +24,7 @@ class Tweet extends Entity
      *
      * @var array
      */
-    public $belongsTo ='User';
+    public $belongsTo ='Users';
 
     protected $_accessible = [
         'title' => true,

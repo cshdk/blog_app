@@ -39,6 +39,7 @@ class TweetsTable extends Table
         $this->setDisplayField('user_id');
         $this->setPrimaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->belongsTo('Users');
     }
 
     /**

@@ -34,6 +34,11 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+
+
+        #アソシエーションの指定
+        $this->hasMany('Tweets');
     }
 
     /**
