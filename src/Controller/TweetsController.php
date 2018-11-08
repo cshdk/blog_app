@@ -24,7 +24,8 @@ class TweetsController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow('index');
+        $this->Auth->allow(['index','view']);
+
     }
 
     public $paginate = [
@@ -55,7 +56,6 @@ class TweetsController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
 
-      #何に使われるかいまいちわかっていないため消しておいた
     public function view($id = null)
     {
         $tweet = $this->Tweets->get($id, [
