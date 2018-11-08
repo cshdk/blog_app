@@ -102,13 +102,12 @@ class TweetsController extends AppController
     public function edit($id = null)
     {
         $tweet = $this->Tweets->get($id, [
-            'contain' => []
+            'contain' => ['']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $tweet = $this->Tweets->patchEntity($tweet, $this->request->getData());
             if ($this->Tweets->save($tweet)) {
                 $this->Flash->success(__('The tweet has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The tweet could not be saved. Please, try again.'));

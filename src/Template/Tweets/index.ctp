@@ -6,7 +6,7 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <div class="side-nav">
-        <div class="new_tweet_button"><?= $this->Html->link(__('New Tweet'), ['action' => 'add']) ?></div>
+        <div class="new_tweet_button"><?= $this->Html->link(__('New Blog'), ['action' => 'add']) ?></div>
     </div>
 </nav>
 <div class="tweets index large-9 medium-8 columns content">
@@ -49,8 +49,8 @@
                             <?= date('Y/m/d h:i', strtotime($tweet_user->created)); ?>
                        </div>
                       </div>
-              <div class="nul_box">
-              </div>
+                     <div class="nul_box">
+                     </div>
             <?php endforeach; ?>
         </tbody>
     </table>

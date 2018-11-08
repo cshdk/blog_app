@@ -5,16 +5,9 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $tweet->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $tweet->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Tweets'), ['action' => 'index']) ?></li>
-    </ul>
+     <div class="side-nav">
+        <div class="new_tweet_button"><?= $this->Html->link(__('Return Top'), ['action' => 'index']) ?></div>
+    </div>
 </nav>
 <div class="tweets form large-9 medium-8 columns content">
     <?= $this->Form->create($tweet) ?>

@@ -1,9 +1,7 @@
 <?php
 namespace App\Controller;
-
 use App\Controller\AppController;
 use Cake\Event\Event;
-
 /**
  * Users Controller
  *
@@ -13,31 +11,25 @@ use Cake\Event\Event;
  */
 class UsersController extends AppController
 {
-
     /**
      * Index method
      *
      * @return \Cake\Http\Response|void
      */
-
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
         $this->Auth->allow('add');
     }
-
     //  public function beforeFilter() {
     //  parent::beforeFilter();
     //  $this->Auth->allow('add');
     // }
-
     // public function index()
     // {
     //     $users = $this->paginate($this->Users);
-
     //     $this->set(compact('users'));
     // }
-
     /**
      * View method
      *
@@ -45,17 +37,14 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-
      #何に使われるかいまいちわかっていないため消しておいた
     // public function view($id = null)
     // {
     //     $user = $this->Users->get($id, [
     //         'contain' => []
     //     ]);
-
     //     $this->set('user', $user);
     // }
-
     /**
      * Add method
      *
@@ -74,7 +63,6 @@ class UsersController extends AppController
         }
           $this->set(compact('user'));
     }
-
     /**
      * Edit method
      *
@@ -91,14 +79,12 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-
               return $this->redirect(['controller' => 'tweets', 'action' => 'index']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $this->set(compact('user'));
     }
-
     /**
      * Delete method
      *
@@ -115,7 +101,6 @@ class UsersController extends AppController
         } else {
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['controller' => 'tweets', 'action' => 'index']);
     }
 
@@ -132,7 +117,6 @@ class UsersController extends AppController
         }
           $this->set(compact('user'));
     }
-
     public function logout()
     {
         #セッションの破棄をしている
