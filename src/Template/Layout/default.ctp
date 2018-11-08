@@ -36,7 +36,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <ul class="title-area large-3 medium-4 columns">
           <div class="name2">
             <li class="name">
-                <h1><a class="name3" href='http://localhost:8765/tweets/index'>BLOG APP</a></h1>
+                <h1><a class="main_name" href='http://localhost:8765/tweets/index'>BLOG APP</a></h1>
             </li>
           </div>
         </ul>
@@ -66,7 +66,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
-    <footer>
-    </footer>
+    <footer id="blog-footer">
+<!-- Blog Common Footer // -->
+<div id="footer">
+    <p>&copy; BLOG APP Corporation</p>
+</div>
+<!-- // Blog Common Footer -->
+</footer>
 </body>
 </html>

@@ -534,16 +534,75 @@ table td {
 /*新しく加えたデザイン*/
 
 
-.post_title{
+/*.post_title{
    width: 300px;
   /* background-color: gray;*/
-}
+}*/
 
 .post_body{
-   width: 300px;
-   height: 500px;
+   height: 200px;
  /*  background-color: gray;*/
 }
+
+/*index画面でのコンテンツデザイン*/
+
+.content_box{
+　 /*border-radius: 5px;
+   border: solid 3px #67c5ff;
+    text-decoration: none;
+      display: inline-block;
+/*   background: gray;*/
+   margin: 30px 0 0px 0;
+   display: inline-block;
+   padding: 0.3em 1em;
+   text-decoration: none;
+   border: solid 7px #253141;
+   border-radius: 10px;
+   transition: .4s;
+}
+
+.nul_box{
+   height: 50px;
+}
+
+.name_head{
+   font-size: 35px;
+   font-family: "Gill Sans", sans-serif;
+}
+
+.name_author-title{
+    font-size: 30px;
+}
+
+.name_author{
+　 font-size: 10px;
+   font-family: "Gill Sans", sans-serif;
+}
+
+/*.postbody_clearfix:after{
+   clear: both;
+   display: block;
+   content: "";
+}
+*/
+.post_data{
+   width: 150px;
+   height: 50px;
+   display: inline-block;
+  /* padding: 0.3em 1em;*/
+   text-decoration: none;
+   transition: .4s;
+   color: #afafaf;
+   margin-left: 90px;
+}
+
+/*.post_datahead{
+    margin-top: 0px;
+}*/
+
+
+
+/*コンテンツ内のボタンデザイン*/
 
 .button_type{
    width: 200px;
@@ -556,10 +615,12 @@ table td {
    border-radius: 5px;
    transition: .4s;
    text-align: center;
-   margin: 0 20px 0 20px;
+   margin: 10px 20px 0 15px;
    font-size: 30px;
    font-weight: bold;
 }
+
+/*ログインログアウト部分のボタンデザイン*/
 
 .square_btn{
     width: 200px;
@@ -582,6 +643,20 @@ table td {
     color: white;
 }
 
+/*タイトルのの文字書式*/
+
+.main_name_head{
+  font-size: 40px;
+  font-family: "Gill Sans", sans-serif;
+}
+
+.main_name{
+    font-size: 28px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+/*ログインログアウト部分の文字*/
+
 li.name {
   text-align: center;
   margin: 30px,50px,50px,40px;
@@ -591,18 +666,29 @@ li.name {
     margin: 25px 50px  0 0;
 }
 
-.name3{
-    font-size: 28px;
-    font-family: "Gill Sans", sans-serif;
-}
-
 .text_inbutton{
     color:  white;
     margin-top: 30px;
 }
 
-/*.text_inbutton:hover{
-    color: #253141;
-}*/
+
+/*footerの部分のデザイン*/
+
+
+#blog-footer{
+    display: inline-block;
+   /* padding: 0.3em 1em;*/
+    text-decoration: none;
+    border-top: solid 1px #67c5ff;
+    transition: .4s;
+    text-align: center;
+    margin: 25px 100px 0 60px;
+    font-size: 30px;
+   font-weight: bold;
+
+}
+#footer{
+  height: 200px;
+}
 
 
