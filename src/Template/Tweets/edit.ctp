@@ -19,12 +19,12 @@
 <div class="tweets form large-9 medium-8 columns content">
     <?= $this->Form->create($tweet) ?>
     <fieldset>
-        <legend><?= __('Edit Tweet') ?></legend>
+        <legend><?= __('編集ページ') ?></legend>
         <?php
             echo $this->Form->control('title');
             echo $this->Form->control('body');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('UPDATE')) ?>
+    <?= $this->Form->button(__('更新する')) ?>
     <?= $this->Form->end() ?>
 </div>
