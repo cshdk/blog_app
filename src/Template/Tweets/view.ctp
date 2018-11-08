@@ -14,27 +14,10 @@
     </ul>
 </nav>
 <div class="tweets view large-9 medium-8 columns content">
+  <div><?= h($tweet->created) ?></div>
     <h3><?= h($tweet->title) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Title') ?></th>
-            <td><?= h($tweet->title) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($tweet->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($tweet->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($tweet->modified) ?></td>
-        </tr>
-    </table>
     <div class="row">
-        <h4><?= __('Body') ?></h4>
+        <h4><?= __('本文') ?></h4>
         <?= $this->Text->autoParagraph(h($tweet->body)); ?>
     </div>
 </div>
