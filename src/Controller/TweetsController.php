@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Log\Log;
+use Cake\Error\Debugger;
 
 /**
  * Tweets Controller
@@ -26,12 +27,24 @@ class TweetsController extends AppController
         $this->Auth->allow('index');
     }
 
+    public $paginate = [
+        'limit' => 4,
+        'order' => ['created' => 'DESC']
+     ];
 
     public function index()
     {
-        $tweets = $this->paginate($this->Tweets);
-
-        $this->set(compact('tweets'));
+        // $tweets = $this->paginate($this->Tweets);
+        // $tweets = TableRegistry::getTableLocator()->get('Tweets');
+        // $tweets = $this->Tweets->find();
+        // $tweets_user = $this->paginate($this->Tweets->find('all')->contain(['Users']));
+     $tweets_user = $this->Tweets->find('all')->contain(['Users']);
+        // Log::debug($tweets);
+     Log::debug($tweets_user);
+        // Debugger::dump($tweets_user);
+        // Debugger::dump($tweets);
+        // $this->set(compact('tweets'));
+      $this->set('tweets_user', $this->paginate($tweets_user));
     }
 
     /**
@@ -48,7 +61,6 @@ class TweetsController extends AppController
         $tweet = $this->Tweets->get($id, [
             'contain' => []
         ]);
-
         $this->set('tweet', $tweet);
     }
 
@@ -66,6 +78,7 @@ class TweetsController extends AppController
         $tweet = $this->Tweets->newEntity();
         if ($this->request->is('post')) {
             $tweet = $this->Tweets->patchEntity($tweet, $this->request->getData());
+             Log::debug($tweet);
             // eval(\Psy\sh());
             $tweet->user_id = $this->Auth->user('id');
             if ($this->Tweets->save($tweet)) {
@@ -123,3 +136,5 @@ class TweetsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 }
+
+?>

@@ -11,54 +11,47 @@
     </ul>
 </nav>
 <div class="tweets index large-9 medium-8 columns content">
-
-      <?php
-      $logged_in = $this->request->getSession()->read('Auth');
-        if(is_null($logged_in)):
-             echo "ログインしてください";
-          else:
-             echo "ログイン中です";
-            #後々フラッシュメッセージにする
-          endif;
-          var_dump($logged_in);
-       ?>
-    <h2><?= __('Tweets') ?>一覧</h2>
+    <h2 class="main_name_head">Latest Blog List</h2>
     <table>
-       <!--  <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('title') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead> -->
         <tbody>
-            <?php foreach ($tweets as $tweet): ?>
-          <!--   <tr> -->
-              <!--   <td><?= $this->Number->format($tweet->id) ?></td> -->
+           <?php foreach ($tweets_user as $tweet_user): ?>
+            <div class="content_box">
                 <div class="post_title">
-                 <h2>タイトル</h2>
-                  <?= h($tweet->title) ?>
+                  <h2 class="name_head">Title</h2>
+                  <?= h($tweet_user->title) ?>
                 </div>
                 <div class="post_body">
-                 <h2>内容</h2>
-                  <?= h($tweet->body) ?>
+                  <h2 class="name_head">Content</h2>
+                  <?php
+                    $str = ($tweet_user->body);
+                    $str = mb_strimwidth($str, 0, 150, '...........', 'UTF-8');
+                    echo $str;
+                  ?>
                 </div>
-           <!--      <td><?= h($tweet->created) ?></td>
-                <td><?= h($tweet->modified) ?></td> -->
-              <!--   <td class="actions"> -->
-                  <div class="button_type">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $tweet->id]) ?>
-                  </div>
-                  <div class="button_type">
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $tweet->id]) ?>
-                  </div>
-                  <div class="button_type">
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $tweet->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tweet->id)]) ?>
-                  </div>
-             <!--    </td> -->
-          <!--   </tr> -->
+                 <div class="post_body">
+                      <div class="name_author-title">Author</div>
+                         <div class="name_author"><?= h($tweet_user->user->username) ?></div>
+                      </div>
+                      <div class="button_type">
+                         <?= $this->Html->link(__('View'), ['action' => 'view', $tweet_user->id]) ?>
+                      </div>
+                      <div class="button_type">
+                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $tweet_user->id]) ?>
+                      </div>
+                      <div class="button_type">
+                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $tweet_user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tweet_user->id)]) ?>
+                      </div>
+                       <div class="post_data">
+                          <div class="post_datahead">time</div>
+                            <?= date('Y/m/d h:i', strtotime($tweet_user->created)); ?>
+                       </div>
+                 <!--  <div class="post_date">
+                    <h2 class="post_data_head">date</h2>
+                    <?= h($tweet_user->created) ?>
+                  </div> -->
+                </div>
+              <div class="nul_box">
+              </div>
             <?php endforeach; ?>
         </tbody>
     </table>
